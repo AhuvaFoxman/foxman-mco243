@@ -128,14 +128,12 @@ public class Microprocessor {
 			accumulatorA = '0';
 		} else {
 
-			builder.setLength(0);
-
-			builder.append(accumulatorA);
-			int dec = convertHexToDecimal(builder.toString());
+			
+			int dec = convertHexToDecimal(String.valueOf(accumulatorA));
 			dec++;
 
-			String a = convertDecimalToHex(dec);
-			accumulatorA = a.charAt(0);
+			String hex = convertDecimalToHex(dec);
+			accumulatorA = hex.charAt(0);
 
 		}
 
@@ -148,13 +146,13 @@ public class Microprocessor {
 			accumulatorA = 'F';
 		} else {
 
-			int dec = convertHexToDecimal(String.valueOf(accumulatorB));
+			int dec = convertHexToDecimal(String.valueOf(accumulatorA));
 
 			dec--;
 
-			String a = convertDecimalToHex(dec);
+			String hex = convertDecimalToHex(dec);
 
-			accumulatorA = a.charAt(0);
+			accumulatorA = hex.charAt(0);
 		}
 
 		counter++;
