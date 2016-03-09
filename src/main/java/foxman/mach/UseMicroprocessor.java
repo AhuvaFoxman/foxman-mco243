@@ -9,6 +9,11 @@ public class UseMicroprocessor {
 
 	public static void main(String[] args) throws IOException {
 
+	
+		
+	
+		
+		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		//BufferedReader reader = new BufferedReader(new FileReader("./mach.in"));
 
@@ -29,6 +34,8 @@ public class UseMicroprocessor {
 		}
 
 		reader.close();
+	
 
+		
 	}
 }
