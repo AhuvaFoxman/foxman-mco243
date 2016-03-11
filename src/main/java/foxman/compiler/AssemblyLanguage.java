@@ -7,12 +7,11 @@ import java.util.ArrayList;
 
 public class AssemblyLanguage {
 
-	private ArrayList<String> output;
-	private int counter = 0;
+	private StringBuilder output;
 
 	public AssemblyLanguage() throws IOException {
 
-		output = new ArrayList<String>();
+		output = new StringBuilder();
 
 	}
 
@@ -25,6 +24,10 @@ public class AssemblyLanguage {
 	public String convert(String con) {
 		int dec = Integer.parseInt(con);
 		String hex = convertDecimalToHex(dec);
+		
+		if(hex.length() == 1){
+			return "0" + hex;
+		}
 
 		return hex;
 	}
@@ -43,81 +46,74 @@ public class AssemblyLanguage {
 
 		case "LD":
 
-			output.add("0");
+			output.append("0");
 
 			hex = convert(mem);
-			output.add(hex);
+			output.append(hex);
 
 			break;
 
 		case "ST":
-			output.add("1");
+			output.append("1");
 
 			hex = convert(mem);
-			output.add(hex);
+			output.append(hex);
 
 			break;
 
 		case "SWP":
-			output.add("2");
-
-			counter++;
+			output.append("2");
 
 			break;
 
 		case "ADD":
-			output.add("3");
-
-			counter++;
+			output.append("3");
 
 			break;
 
 		case "INC":
 
-			output.add("4");
-
-			counter++;
+			output.append("4");
 
 			break;
 
 		case "DEC":
 
-			output.add("5");
-			counter++;
+			output.append("5");
 
 			break;
 
 		case "BZ":
 
-			output.add("6");
+			output.append("6");
 
 			hex = convert(mem);
-			output.add(hex);
+			output.append(hex);
 
 			break;
 
 		case "BR":
 
-			output.add("7");
+			output.append("7");
 
 			hex = convert(mem);
-			output.add(hex);
+			output.append(hex);
 
 			break;
 
 		case "STP":
 
-			output.add("8");
+			output.append("8");
 			break;
 
 		case "DATA":
-			output.add(mem);
+			output.append(mem);
 
 		}
 
 	}
 
-	public ArrayList<String> getOutput() {
-		return this.output;
+	public String getOutput() {
+		return this.output.toString();
 	}
 }

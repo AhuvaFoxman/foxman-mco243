@@ -20,12 +20,7 @@ public class UseCompiler {
 			line = reader.readLine();
 		}
 
-		// language.addLastHex(line);
-
-		for (String o : language.getOutput()) {
-			System.out.print(o);
-
-		}
+		System.out.println(language.getOutput());
 
 		reader.close();
 
